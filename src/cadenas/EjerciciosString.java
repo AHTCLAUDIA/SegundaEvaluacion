@@ -1,5 +1,6 @@
 package cadenas;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EjerciciosString {
@@ -21,8 +22,11 @@ public class EjerciciosString {
         //ejercicio05(cadena);
         //ejercicio06(cadena);
         //ejercicio07(cadena);
-
-        ejercicio09(cadena);
+        //ejercicio08(cadena);
+        //ejercicio09(cadena);
+        //ejercicio10(cadena);
+        //ejercicio11(cadena);
+        ejercicio12(cadena);
 
         // Escribir aquí un menú en que preguntamos al usuario qué ejercicio quiere realizar
         // A continuación según la opción elegida se invoca al método correspondiente al ejercicio seleccionado
@@ -167,6 +171,15 @@ Si tenemos una cadena con un nombre y apellidos, realizar un programa que muestr
 iniciales en mayúsculas.
          */
 
+        // TRUCO: nombre y apellidos están separados por un espacio
+        String[] trozos = cadena.split(" ");
+
+        //System.out.println(Arrays.toString(trozos));
+
+        // Imprimo el primer carácter de cada elemento del array
+        for (int i = 0; i < trozos.length; i++) {
+            System.out.print(trozos[i].substring(0,1).toUpperCase());
+        }
 
     }
 
@@ -191,6 +204,39 @@ Pide una cadena y dos caracteres por teclado (valida que sea un carácter), sust
 aparición del primer carácter en la cadena por el segundo carácter.
          */
 
+        // pedir dos caracteres
+        System.out.println("Introduce primer carácter:");
+        char c1 = sc.nextLine().charAt(0);
+        System.out.println("Introduce segundo carácter:");
+        char c2 = sc.nextLine().charAt(0);
+
+        // como el replace no lo puedo utilizar porque reemplazaría todos
+        // y no puedo hacer una sustitución directa en la cadena
+        // lo que voy a hacer es convertir el String en un array de caracteres
+        char[] caracteres = new char[cadena.length()];
+
+        // ahora vamos rellenando el array de caracteres con los caracteres de la cadena
+        for (int i = 0; i < caracteres.length; i++) {
+            caracteres[i] = cadena.charAt(i);
+        }
+
+        //ahora ya tengo un array de caracteres y puede hacer sustituciones concretas
+        // ahora busco la primera aparción del carácter c1
+        for (int i = 0; i < caracteres.length; i++) {
+            if (caracteres[i] == c1) {
+                // cuando encuentro un carácter igual al primero introducido, lo sustituyo por el segundo
+                caracteres[i] = c2;
+                break;
+            }
+        }
+
+        // imprimimos
+        //System.out.println(Arrays.toString(caracteres)); // queda feo impreso, pero por no seguir con esto
+
+        for (char carácter: caracteres) {
+            System.out.print(carácter);
+        }
+
     }
 
     public static void ejercicio11(String cadena) {
@@ -199,7 +245,13 @@ aparición del primer carácter en la cadena por el segundo carácter.
 Realizar un programa que lea una cadena por teclado y convierta las mayúsculas a
 minúsculas y viceversa.
          */
-
+        for (int i = 0; i < cadena.length(); i++) {
+            if (Character.isLowerCase(cadena.charAt(i))) { // si el carácter que toca es minúscula
+                System.out.print(Character.toUpperCase(cadena.charAt(i))); ; // lo imprimo (ese carácter) como mayúscula
+            } else { // si no, es que es mayúscula
+                System.out.print(Character.toLowerCase(cadena.charAt(i))); ; // lo imprimo (ese carácter) como minúscula
+            }
+        }
     }
 
     public static void ejercicio12(String cadena) {
@@ -208,15 +260,32 @@ minúsculas y viceversa.
 Realizar un programa que compruebe si una cadena contiene una subcadena. Las dos
 cadenas se introducen por teclado.
          */
+        // PEDIMOS UNA CADENA (VAMOS A COMPROBAR SI ESTÁ CONTENIDA EN cadena
+        System.out.println("Introduce una subcadena");
+        String subcadena = sc.nextLine();
+
+        // tenemos que comprobar si subcadena está dentro de cadena
+        System.out.println(cadena.contains(subcadena));  // si lo quiero mejorar puedo utilizar un if con información sobre el resultado
 
     }
 
     public static void ejercicio13(String cadena) {
         /*
         Ejercicio 13
-Introducir una cadena de caracteres e indicar si es un palíndromo. Una palabra palíndroma
+Introducir una cadena de caracteres e indicar si es un palíndromo. Un palíndroma
 es aquella que se lee igual adelante que atrás.
          */
+
+        // Dabale arroz a la zorra el abad
+
+        // 1. Quito los espacios --> crear un método quitarEspacios que recibe una cadena y devuelve otra cadena (que es la cadena introducida, pero sin espacios)
+                // llamamos a ese método y recogemos el resultado en una variable de tipo Strings
+
+
+        // 2. Creo otra cadena que sea la misma pero invertida --> crear
+
+        // 3. Las comparo
+
 
     }
 
