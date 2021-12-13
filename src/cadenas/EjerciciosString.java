@@ -26,7 +26,9 @@ public class EjerciciosString {
         //ejercicio09(cadena);
         //ejercicio10(cadena);
         //ejercicio11(cadena);
-        ejercicio12(cadena);
+        //ejercicio12(cadena);
+        //ejercicio13(cadena);
+        ejercicio14(cadena);
 
         // Escribir aquí un menú en que preguntamos al usuario qué ejercicio quiere realizar
         // A continuación según la opción elegida se invoca al método correspondiente al ejercicio seleccionado
@@ -276,17 +278,36 @@ Introducir una cadena de caracteres e indicar si es un palíndromo. Un palíndro
 es aquella que se lee igual adelante que atrás.
          */
 
-        // Dabale arroz a la zorra el abad
+        // dabale arroz a la zorra el abad
 
         // 1. Quito los espacios --> crear un método quitarEspacios que recibe una cadena y devuelve otra cadena (que es la cadena introducida, pero sin espacios)
-                // llamamos a ese método y recogemos el resultado en una variable de tipo Strings
-
-
-        // 2. Creo otra cadena que sea la misma pero invertida --> crear
-
+        // llamamos a ese método y recogemos el resultado en una variable de tipo Strings
+        cadena = quitarEspacios(cadena); // llamo al método con la cadena según llega y guardo la cadena transformada
+        //System.out.println(cadena);
+        // 2. Creo otra cadena que sea la misma pero invertida --> crear método invertirCadena (recibe una cadena y devuelve esa  cadena pero invertida
+        String inv = invertirCadena(cadena);
+        //System.out.println(inv);
         // 3. Las comparo
+        if (cadena.equals(inv)) {
+            System.out.println("Es un palíndromo");
+        } else {
+            System.out.println("No es un palíndromo");
+        }
 
+    }
 
+    public static String quitarEspacios(String s) { // recibe un string y devuelve un string
+        // recibo una cadena y le quito los espacios
+         s = s.replace(" ", "");
+        return s;
+    }
+
+    public static String invertirCadena(String s) { // recibe una cadena y devuelve esa cadena invertida
+        String invertida = "";
+        for (int i = s.length()-1; i >= 0; i--) {
+            invertida = invertida + s.charAt(i);
+        }
+        return invertida;
     }
 
     public static void ejercicio14(String cadena) {
@@ -295,6 +316,8 @@ es aquella que se lee igual adelante que atrás.
 Suponiendo que hemos introducido una cadena por teclado que representa una frase
 (palabras separadas por espacios), realiza un programa que cuente cuántas palabras tiene.
          */
+        String[] palabras = cadena.split(" ");
+        System.out.println("La cadena contiene " + palabras.length + " palabras.");
 
     }
 
