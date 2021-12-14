@@ -28,7 +28,8 @@ public class EjerciciosString {
         //ejercicio11(cadena);
         //ejercicio12(cadena);
         //ejercicio13(cadena);
-        ejercicio14(cadena);
+        //ejercicio14(cadena);
+        ejercicio15(cadena);
 
         // Escribir aquí un menú en que preguntamos al usuario qué ejercicio quiere realizar
         // A continuación según la opción elegida se invoca al método correspondiente al ejercicio seleccionado
@@ -327,7 +328,15 @@ Suponiendo que hemos introducido una cadena por teclado que representa una frase
 Pide una cadena y un carácter por teclado y muestra cuantas veces aparece el carácter en la
 cadena.
          */
-
+        System.out.println("Introduce el carácter a contar: ");
+        String carácter = sc.nextLine().substring(0,1); // char carácter = sc.nextLine().charAt(0); --> otra forma
+        int contador = 0;
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.substring(i, i+1).equals(carácter)) { // si he cogido un char al principio --> cadena.charAt(i) == carácter
+                contador++; // cada vez que la letra que toca es igual que el carácter guardado, el contador se incrementa
+            }
+        }
+        System.out.println("El carácter " + carácter + " aparece " + contador + " veces.");
     }
 
 }
