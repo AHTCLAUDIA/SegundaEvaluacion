@@ -29,7 +29,25 @@ public class TeoríaMétodos {
         imprimirNotas("Julián", 7, 7, 8);
         imprimirNotas("Pastora", 7, 7, 8, 5);
 
+        // Ejercicio 16 teoría
+        method(10);
+
+
     }
+
+    public static void method(short s) {
+        System.out.println("short");
+    }
+    public static void method(byte b) {
+        System.out.println("byte");
+    }
+    public static void method(int i) {
+        System.out.println("int");
+    }
+    public static void method(long l) {
+        System.out.println("long");
+    }
+
 
     public static void imprimirNotas(String nombre, int... notas) {
         System.out.println("Se han introducido " + notas.length + " notas: ");
