@@ -1,14 +1,30 @@
 package cadenas;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Ejercicio16 {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String l = crearLista(); // se invoca al comenzar el programa
-        int op = menu();
-        ejecutarOpción(op, l);
+        String lista = crearLista(); // se invoca al comenzar el programa
+        // vamos a hacer que cada vez que se ejecuta una opción del menú
+        // nos pregunte si queremos salir
+        boolean salir = false;
+        do {
+            int op = menu();
+            lista = ejecutarOpción(op, lista);
+            // una vez completada una de las acciones que le dijimos en el menú, preguntamos
+            System.out.println("¿Quieres salir? (s/n)");
+            char respuesta = sc.next().toLowerCase().charAt(0);
+            if (respuesta == 's') {
+                salir = true;
+            } else {
+                salir = false;
+            }
+        } while (!salir);
+
+
     }
 
     public static String crearLista() {
@@ -41,19 +57,19 @@ añadiendo a la lista y devuelve el String que contiene todas ellas.
         return opción;
     }
 
-    public static void ejecutarOpción(int número, String cadena) {
+    public static String ejecutarOpción(int número, String cadena) {
         switch (número) {
             case 1:
-                añadir(cadena);
+                cadena = añadir(cadena);
                 break;
             case 2:
                 contar(cadena);
                 break;
             case 3:
-                modificar(cadena);
+                cadena = modificar(cadena);
                 break;
             case 4:
-                eliminar(cadena);
+                cadena = eliminar(cadena);
                 break;
             case 5:
                 mostrar(cadena);
@@ -61,26 +77,51 @@ añadiendo a la lista y devuelve el String que contiene todas ellas.
             default:
                 System.out.println("Opción incorrecta");
         }
+        return cadena;
     }
 
-    public static void añadir(String cadena) {
-
+    public static String añadir(String cadena) {
+        // añade una palabra a la lista.
+        System.out.println("Palabra a añadir: ");
+        String palabra = sc.nextLine();
+        cadena = cadena + palabra + " ";
+        return cadena;
     }
 
     public static void contar(String cadena) {
-
+        // cuenta las palabras que tiene la lista
+        int contador = 0;
+        System.out.println(cadena.length());
+        for (int i = 0; i < cadena.length(); i++) {
+            // si encontramos un espacio, incrementamos el contador
+            if (cadena.charAt(i) == ' ') {
+                contador++;
+            }
+        }
+        System.out.println("Hay " + contador + " palabras en la lista.");
     }
 
-    public static void modificar(String cadena) {
-
+    public static String modificar(String cadena) {
+        // sustituye una palabra por otra
+        System.out.println("¿Qué palabra quieres sustituir?");
+        String palabraOld = sc.nextLine();
+        System.out.println("¿Por qué palabra quieres reemplazarla?");
+        String palabraNew = sc.nextLine();
+        cadena = cadena.replace(palabraOld, palabraNew);
+        return cadena;
     }
 
-    public static void eliminar(String cadena) {
-
+    public static String eliminar(String cadena) {
+        // elimina una palabra de la lista
+        System.out.println("¿Qué palabra quieres eliminar?");
+        String palabra = sc.next();
+        cadena = cadena.replace(palabra + " ", "");
+        return cadena;
     }
 
     public static void mostrar(String cadena) {
-
+       // muestra la lista de palabras.
+        System.out.println(cadena);
     }
 
 }
