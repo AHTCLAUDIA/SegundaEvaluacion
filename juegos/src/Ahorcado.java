@@ -68,8 +68,11 @@ public class Ahorcado {
             break;
         }
         // si recorro to-do y no está, tengo un intento menos y pinto el ahorcado
-
-            System.out.println("La palabra era: " + palabra.toString());
+            String p = "";
+            for (int i = 0; i < palabra.length; i++) {
+                p = p + palabra[i];
+            }
+            System.out.println("La palabra era: " + p);
 
         } while (intentos > 0);
     }
