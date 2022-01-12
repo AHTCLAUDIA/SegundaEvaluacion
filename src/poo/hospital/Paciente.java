@@ -1,4 +1,4 @@
-package poo;
+package poo.hospital;
 
 public class Paciente {
     // Atributos: guardan datos que necesitemos saber de cada paciente

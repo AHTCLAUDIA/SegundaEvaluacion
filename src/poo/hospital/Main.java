@@ -1,6 +1,4 @@
-package poo;
-
-import poo.Paciente;
+package poo.hospital;
 
 import java.util.Arrays;
 
