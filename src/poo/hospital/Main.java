@@ -33,5 +33,16 @@ public class Main {
         paciente0.setNombre("María");
         // ahora quiero ver cómo se llama
         System.out.println(paciente0.getNombre());
+
+
+        // Ejemplo de tipo referencia (asignación peligrosa)
+        Paciente paciente = new Paciente();
+        paciente.setNombre("Hache");
+        paciente.setEdad(24);
+        System.out.println(paciente.getNombre() + " " + paciente.getEdad());//Hache 24
+        Paciente p = paciente; // no estoy creando un objeto
+        System.out.println(p.getNombre() + " " + p.getEdad()); // Hache 24
+        paciente.setEdad(25);
+        System.out.println(p.getEdad()); // 25
     }
 }
