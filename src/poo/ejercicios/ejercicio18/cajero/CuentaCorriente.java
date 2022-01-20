@@ -15,6 +15,20 @@ class CuentaCorriente {
     // y saldo. saldo no sea visible para otras clases
     private float saldo;
 
+    // Modificar la clase CuentaCorriente para que pueda disponer de un objeto Gestor.
+    Gestor gestor;
+
+    // Escribir los métodos necesarios. --> se puede referir a crear un constructor con esto y/o, si es necesario, crear getter y setter
+    public Gestor getGestor() {
+        return gestor;
+    }
+
+    public void setGestor(Gestor gestor) {
+        this.gestor = gestor;
+    }
+
+
+
     //vii. Todas las cuentas corrientes con las que se va a trabajar pertenecen al mismo banco. --> banco no es particular de cada cuenta, sino que es de toda la clase --- es un atributo estático
     // Añadir un atributo que almacene el nombre del banco (que es único) en la clase CuentaCorriente.
     static String banco = "International Java Bank";
@@ -65,6 +79,8 @@ class CuentaCorriente {
         System.out.println("DNI:\t" + this.DNI);
         System.out.println("Saldo:\t" + this.saldo + " euros.");
         System.out.println("Banco:\t" + banco);
+        // añado la información del gestor
+        //System.out.println("Gestor:\t" + this.getGestor().importeMax); // revisar por qué sale null
     }
 
     // Las operaciones típicas con una cuenta corriente son: --> los métodos de la clase

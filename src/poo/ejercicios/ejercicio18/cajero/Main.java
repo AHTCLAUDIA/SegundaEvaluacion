@@ -17,8 +17,6 @@ public class Main {
         cc2.mostrarInformacion();
 
 
-
-
 //Escribe un programa para comprobar la visibilidad de los atributos. --> intentamos ver los atributos de cada objeto
         System.out.println(cc1.nombre); // ok, visible, es public
         System.out.println(cc1.DNI); // ok, visible -- es default package y los estamos llamamos desde el mismo paquete
@@ -39,5 +37,26 @@ public class Main {
         System.out.println();
         cc1.retirarDinero(750);
         cc1.ingresarDinero(5000);
+
+        // Vamos a probar los dos constructores de gestor: creamos dos gestores, uno con cada uno
+        Gestor g1 = new Gestor("G. González", "123456789", 100_000);
+
+        // Para  ver los valores de sus atributos, como no hemos creado un método para ello, lo hacemos aquí "a mano"
+        System.out.println("\nDatos del primer gestor:" + g1.nombre + "(" + g1.telefono + ") Importe máximo: " + g1.importeMax);
+
+        // Probamos el segundo constructor
+        Gestor g2 = new Gestor("G. García", "666666666");
+        System.out.println("\nDatos del segundo gestor:" + g2.nombre + "(" + g2.telefono + ") Importe máximo: " + g2.importeMax);
+
+        // Vamos a probar que no podemos cambiar el teléfono
+        g1.nombre = "H. Hernández"; // no problem porque es default package y estamos en el mismo paquete
+        //g1.telefono = "5555555"; // no nos deja porque lo hemos puesto final, una vez asignado un valor no deja cambiarlo
+
+
+        // Vamos a asignar un gestor a cada una de las cuentas que tenemos
+        cc2.setGestor(g2);
+        cc2.mostrarInformacion();
+
+
     }
 }
