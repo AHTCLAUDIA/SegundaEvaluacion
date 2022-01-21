@@ -30,9 +30,6 @@ public class MainEmojis {
         mostrarEstacion(Estacion.VERANO);
         mostrarEstacion(Estacion.PRIMAVERA);
         mostrarEstacion(Estacion.OTOÑO);
-
-
-
     }
 
     static void mostrarEstacion(Estacion Estacion) {
