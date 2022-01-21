@@ -54,6 +54,7 @@ public class Main {
 
 
         // Vamos a asignar un gestor a cada una de las cuentas que tenemos
+        System.out.println("\nAsignamos un gestor a una cuenta y mostramos su información");
         cc2.setGestor(g2);
         cc2.mostrarInformacion();
 
