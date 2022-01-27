@@ -50,6 +50,17 @@ public class PrácticaMétodos {
                 "Sobrecarga este método con un nuevo método que reciba un int y devuelva el valor\n" +
                 "máximo del tipo int menos el valor dado. El tipo del valor retornado debe ser el mismo que\n" +
                 "el del parámetro.";
+        // pedimos número long
+        // llamamos al método con long
+        // habría que o bien pedir otro número int o bien convertir el long en int y llamar al segundo método
+    }
+
+    public static long getMaxMenosValor(long val) {
+        return Long.MAX_VALUE - val;
+    }
+
+    public static int getMaxMenosValor(int val) {
+        return Integer.MAX_VALUE - val;
     }
 
     public static void ejercicio4() {
@@ -61,6 +72,17 @@ public class PrácticaMétodos {
                 "argumentos: un String y un entero. El nuevo método debe imprimir el nombre y los dos\n" +
                 "parámetros. Por ejemplo:\n" +
                 "print(\"test\", 4)";
+                // pedir una palabra y un número
+        // llamar al metodo print sólo con la cadena para que imprima
+        // llamar al otro método print con la cadena y el número para que imprima lo otro
+    }
+
+    public static void print(String arg) {
+        String cadena = "print(" + arg + ")";
+    }
+
+    public static void print(String arg, int n) {
+        String cadena = "print(" + arg + ")";
     }
 
     public static void ejercicio5() {
