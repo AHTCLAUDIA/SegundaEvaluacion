@@ -14,8 +14,20 @@ public class Cliente extends Persona{
 
     // método toString
 
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "numContrato=" + numContrato +
+                ", clienteOro=" + clienteOro +
+                ", nombre='" + nombre + '\'' +
+                ", añoNacimiento=" + añoNacimiento +
+                ", dirección='" + dirección + '\'' +
+                '}';
+    }
+
     // imprime toString()
     public void mostrarDatos() {
-        System.out.println(nombre);
+        System.out.println(toString());
     }
 }
