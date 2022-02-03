@@ -30,6 +30,7 @@ public class Main {
         // Manager
         Manager jefe = new Manager("Boss", 1970, "Decepción, 14", LocalDate.of(2000, 5, 13), 90000, true);
         jefe.mostrarDatos();
+
     }
 
 
