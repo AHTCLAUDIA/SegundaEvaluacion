@@ -31,6 +31,16 @@ public class Main {
         Manager jefe = new Manager("Boss", 1970, "Decepción, 14", LocalDate.of(2000, 5, 13), 90000, true);
         jefe.mostrarDatos();
 
+        // Vamos a probar el método equals de Object que hemos sobreescrito en Empleado
+        /*
+        Empleado empleado2 = empleado1;
+        Empleado empleado3 = new Empleado("Ruben", 1995, "Aquí, 3", LocalDate.now(), 25000);
+        System.out.println("\nProbamos el método equals:");
+        System.out.println(empleado1.equals(empleado2));
+        System.out.println(empleado1.equals(empleado3));
+        */
+
+        System.out.println(programador1.getClass());
     }
 
 

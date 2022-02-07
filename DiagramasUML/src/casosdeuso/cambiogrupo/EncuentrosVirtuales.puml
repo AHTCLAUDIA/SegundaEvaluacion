@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+
+actor usuario
+actor manager
+usuario <|. manager
+actor moderador
+rectangle "Encuentros virtuales" {
+    usuario -- (consultar sistema)
+    usuario -- (conectarse)
+    usuario -- (salir de un encuentro)
+
+    manager -- (planificar encuentro)
+    (planificar encuentro) ..> (planficar nombre): <<include>>
+    (planificar encuentro) ..> (planificar agenda): <<include>>
+    (planificar encuentro) ..> (asignar moderador): <<include>>
+
+    (asignar turnos) -- moderador
+    (terminar encuentro) -- moderador
+}
+
+
+
+@enduml

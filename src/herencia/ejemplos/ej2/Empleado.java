@@ -26,4 +26,10 @@ public class Empleado extends Persona{
     public void mostrarDatos(){
         System.out.println(toString());
     }
+
+    // no es sobreescritura, es sobrecarga
+    public boolean equals(double salario) {
+        //return super.equals(obj);
+        return this.salario == salario;
+    }
 }
