@@ -1,7 +1,12 @@
 package diagramasclases.empresaempleadocliente;
 
 public class Empleado extends Persona{
-    private float sueldoBruto; // getters y setters ?
+    private float sueldoBruto;
+    /*
+    En la clase Empleado, añade un atributo jefe que será el directivo
+inmediatamente superior a cuyo cargo esté.
+     */
+    Directivo jefe;
 
     /*
     Uno solamente recibe nombre, y edad, asigna un sueldo bruto
@@ -27,10 +32,23 @@ de 12.000.
         this.sueldoBruto = sueldoBruto;
     }
 
+
     /*
-    calcularSueldoNeto(): float. El sueldo neto se calcula descontando un 7%
-para la Seguridad Social y el IRPF según los siguientes tramos:
+    Añade un método para asignar un directivo al empleado.
      */
+
+    public void setJefe(Directivo jefe) {
+        this.jefe = jefe;
+    }
+
+    public Directivo getJefe() {
+        return jefe;
+    }
+
+    /*
+        calcularSueldoNeto(): float. El sueldo neto se calcula descontando un 7%
+    para la Seguridad Social y el IRPF según los siguientes tramos:
+         */
     public float calcularSueldoNeto() {
         float sueldoNeto = sueldoBruto - sueldoBruto * 7/100;
         int tipo = 0;
@@ -56,14 +74,15 @@ para la Seguridad Social y el IRPF según los siguientes tramos:
 bruto y el sueldo neto.
      */
 
+
     @Override
     public String toString() {
-        return "Empleado{" +
-                "sueldoBruto=" + sueldoBruto +
-                ", nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", sueldoNeto=" + calcularSueldoNeto() +
-                '}';
+        return "\nEmpleado:" +
+                "\n* nombre: '" + nombre + '\'' +
+                "\n* edad: " + edad +
+                "\n* sueldoBruto: " + getSueldoBruto() + " €" +
+                "\n* sueldoNeto=" + calcularSueldoNeto() + " €";
+                //"\n* Superior inmediato: " + this.jefe.nombre; // actualizamos para añadir el jefe
     }
 
     @Override
@@ -71,4 +90,5 @@ bruto y el sueldo neto.
         // super.mostrarDatos();
         System.out.println(toString());
     }
+
 }

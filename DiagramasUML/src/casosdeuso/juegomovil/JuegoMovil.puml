@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+actor jugador1
+actor jugador2
+
+rectangle "Juego de movil"{
+    jugador1 -- (manejar nave)
+    (manejar nave) -- jugador2
+
+    jugador1 -- (dispara al contrario)
+    (dispara al contrario) -- jugador2
+    (acierta) .> (finaliza partida) : <<include>>
+    (dispara al contrario) <. (acierta) : <<extends>>
+    (finaliza partida) -- jugador2
+    jugador1 -- (crear partida)
+    (conectarse) -- jugador2
+    jugador1 -- (finaliza partida)
+
+}
+
+@enduml
