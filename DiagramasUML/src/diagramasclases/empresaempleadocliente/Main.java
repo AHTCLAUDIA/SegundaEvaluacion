@@ -18,14 +18,14 @@ sueldo de 36.000.
         // Muestra los datos de los tres
         System.out.println("*** Creamos tres empleados y mostramos sus datos ***");
         System.out.println("****************************************************");
-        empleado1.mostrarDatos();
-        empleado2.mostrarDatos();
-        empleado3.mostrarDatos();
+        //empleado1.mostrarDatos();
+        //empleado2.mostrarDatos();
+        //empleado3.mostrarDatos();
 
         //Sube el sueldo del primero a 15.000. Muestra sus datos.
         System.out.println("\nSube el sueldo del primero a 15.000. Muestra sus datos.");
         empleado1.setSueldoBruto(15000);
-        empleado1.mostrarDatos();
+        //empleado1.mostrarDatos();
 
         // Crea dos clientes y muestra sus datos.
         Cliente cliente1 = new Cliente("C.Corbacho", 25, "912345678");
@@ -46,6 +46,15 @@ datos.
         System.out.println("\n*******************************");
         Directivo jefe = new Directivo("N. Navarro", 50, 40000, 3);
         System.out.println();
+
+        System.out.println("\n*** Ponemos a este directivo como jefe en todos los empleados creados ***");
+        System.out.println("\n*************************************************************************");
+        empleado1.setJefe(jefe);
+        empleado2.setJefe(jefe);
+        empleado3.setJefe(jefe);
+        System.out.println("Probamos...");
+        empleado1.getJefe();
+
         System.out.println("\n*** Le asignamos empleados ***");
         System.out.println("\n*******************************");
         jefe.añadirEmpleado(empleado1);
@@ -53,13 +62,9 @@ datos.
         jefe.añadirEmpleado(empleado3);
         jefe.mostrarDatos();
 
-        System.out.println("\n*** Ponemos a este directivo como jefe en todos los empleados creados ***");
-        System.out.println("\n*************************************************************************");
-        //empleado1.setJefe(jefe);
-        //empleado2.setJefe(jefe);
-        //empleado3.setJefe(jefe);
-        //System.out.println("Probamos...");
-        //empleado1.getJefe();
+
+
+
 
         /*
         Crea un nuevo directivo (“O. Ortiz”, 28, 3000, 5). Quita a uno de los

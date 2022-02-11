@@ -15,6 +15,7 @@ de 12.000.
     public Empleado(String nombre, int edad) {
         super(nombre, edad);
         this.sueldoBruto = 12000;
+        jefe = new Directivo("Nadie", 0, 0, 0);
     }
 
     // Otro constructor recibe e inicializa todos los parámetros.
@@ -81,8 +82,9 @@ bruto y el sueldo neto.
                 "\n* nombre: '" + nombre + '\'' +
                 "\n* edad: " + edad +
                 "\n* sueldoBruto: " + getSueldoBruto() + " €" +
-                "\n* sueldoNeto=" + calcularSueldoNeto() + " €";
-                //"\n* Superior inmediato: " + this.jefe.nombre; // actualizamos para añadir el jefe
+                "\n* sueldoNeto=" + calcularSueldoNeto() + " €" +
+                "\n* Superior inmediato: " + (jefe!=null?jefe.nombre:"Sin jefe"); // actualizamos para añadir el jefe
+
     }
 
     @Override
