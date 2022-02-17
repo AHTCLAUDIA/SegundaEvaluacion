@@ -1,5 +1,7 @@
 package interfaces.ejercicios.ej12biblioteca;
 
+import interfaces.teoria.varias.A;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -29,11 +31,11 @@ public class Main {
         ArrayList<Libro> l = new ArrayList<>();
         l.add(libro1); // añadimos el primer libro al arraylist
         Libro libro2 = new Libro("L02", "La red púrpura", 2017);
-        Libro libro3 = new Libro("L03", "La red púrpura", 2017);
+        Libro libro3 = new Libro("L03", "La red púrpura", 2022);
         Libro libro4 = new Libro("L04", "La red púrpura", 2017);
-        Libro libro5 = new Libro("L05", "La red púrpura", 2017);
-        Libro libro6 = new Libro("L06", "La red púrpura", 2017);
-        Libro libro7 = new Libro("L07", "La red púrpura", 2017);
+        Libro libro5 = new Libro("L05", "La red púrpura", 2018);
+        Libro libro6 = new Libro("L06", "La red púrpura", 2022);
+        Libro libro7 = new Libro("L07", "La red púrpura", 2020);
 
         // Prestamos 3 libros
         libro1.prestar();
@@ -52,6 +54,17 @@ public class Main {
         int n = cuentaPrestados(l);
         System.out.println(n);
 
+        // Probamos el método de publicaciones anteriores creando el arraylist, dos revistas y añadiendo todo el arraylist de libros que ya tenemos
+        ArrayList<Publicacion> p = new ArrayList<>();
+
+        Revista revista2 = new Revista("R2", "Año 0", 2019, 2);
+        Revista revista3 = new Revista("R3", "Año 0", 2020, 3);
+        p.add(revista1);
+        p.add(revista2);
+        p.add(revista3);
+        p.addAll(l);
+        int pub = publicacionesAnterioresA(p, 2020);
+        System.out.println(pub);
     }
 
     /*
@@ -66,6 +79,21 @@ ArrayList de Libros y devuelve cuántos de ellos están prestados.
             if (libros.get(i).prestado == true) { // si el libro que miramos en la posición i está prestado, incrementamos el contador
                 contador++;
             }
+        }
+        return contador;
+    }
+
+    /*
+    Un método estático publicacionesAnterioresA(): recibe por
+parámetro un ArrayList de Publicaciones y un año, y devuelve
+cuántas publicaciones tienen fecha anterior al año recibido por
+parámetro.
+     */
+    public static int publicacionesAnterioresA(ArrayList<Publicacion> publicaciones, int año) {
+        int contador = 0;
+        for (int i = 0; i < publicaciones.size(); i++) {
+            if (publicaciones.get(i).año < año)  // si el año de la publicación es menor que el introducido por parámetro
+                contador++; // incrementamos el contador
         }
         return contador;
     }
