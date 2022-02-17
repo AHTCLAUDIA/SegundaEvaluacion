@@ -1,7 +1,7 @@
 package interfaces.teoria.ejemplos;
 
 public interface Interfaz {
-    public final int CONSTANTE = 0; // una interfaz puede tener constantes
+    public static final int CONSTANTE = 0; // una interfaz puede tener constantes
     // String nombre; // una interfaz no puede tener parámetros
 
     /*
