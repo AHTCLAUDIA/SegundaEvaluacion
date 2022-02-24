@@ -2,7 +2,7 @@ package examen2021;
 
 public class Persona {
     // Tiene dos atributos privados: dni y nombre.
-    private String dni;
+    private final String dni;
     private String nombre;
 
     // Tiene un constructor con dos parámetros.

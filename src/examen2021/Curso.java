@@ -14,9 +14,26 @@ public class Curso {
     private Profesor tutor;
     ArrayList<Alumno> alumnosMatriculados = new ArrayList<>();
 
+    /*
+    • Tiene los métodos necesarios para ver el nombre del tutor
+del curso y para asignar un tutor a un curso.
+     */
     public String getTutor() {
         return tutor.getNombre();
     }
+
+    public void setTutor(Profesor tutor) {
+        this.tutor = tutor;
+    }
+
+    /*
+    Tiene un método mostrarPlazasDisponibles(), que muestra
+las plazas que quedan disponibles en el curso.
+     */
+    public void mostrarPlazasDisponibles() {
+        System.out.println("Plazas disponibles: " + plazasDisponibles);
+    }
+
 
     /*
             Tiene un constructor que recibe el ciclo formativo y el
@@ -56,7 +73,7 @@ añaden al ArrayList teniendo en cuenta lo siguiente:
                 Asignatura rl = new Asignatura("RL", 7);
                 asignaturasCurso.add(rl);
                 Asignatura fol = new Asignatura("FOL", 3);
-                asignaturasCurso.add(mme);
+                asignaturasCurso.add(fol);
             } else {
                 Asignatura sr = new Asignatura("SR", 6);
                 asignaturasCurso.add(sr);
@@ -73,6 +90,18 @@ añaden al ArrayList teniendo en cuenta lo siguiente:
             // si no es grado medio es grado superior
             if (año == 1) {
                 // aquí creamos las asignatura s de 1 DAW
+                Asignatura p = new Asignatura("P", 8);
+                asignaturasCurso.add(p);
+                Asignatura bbdd = new Asignatura("BBDD", 6);
+                asignaturasCurso.add(bbdd);
+                Asignatura lm = new Asignatura("LM", 4);
+                asignaturasCurso.add(lm);
+                Asignatura si = new Asignatura("SI", 6);
+                asignaturasCurso.add(si);
+                Asignatura fol = new Asignatura("FOL", 3);
+                asignaturasCurso.add(fol);
+                Asignatura ed = new Asignatura("ED", 3);
+                asignaturasCurso.add(ed);
             } else {
                 // aquí creamos las asignaturas de 2 DAW
             }
@@ -85,9 +114,35 @@ añaden al ArrayList teniendo en cuenta lo siguiente:
         } else {
             plazasDisponibles = 20;
         }
-
-
-
-
     }
+
+    /*
+    Tiene un método mostrarInformaciónCurso(), que muestra
+año, ciclo, horario, tutor, listado de las asignaturas
+con las horas semanales de cada una, y plazas
+disponibles.
+     */
+
+    @Override
+    public String toString() {
+        return "CURSO: " + ciclo + " " + año +"\n" +
+                "\ngrado=" + grado +
+                "\nciclo=" + ciclo +
+                "\naño=" + año +
+                "\nhorario=" + horario +
+                "\nplazasDisponibles=" + plazasDisponibles +
+                "\nasignaturasCurso=" + asignaturasCurso +
+                "\ntutor=" + tutor +
+                "\nalumnosMatriculados=" + alumnosMatriculados +
+                '}';
+    }
+
+    public void mostrarInformaciónCurso() {
+        System.out.println(this);
+    }
+
+
+
+
+
 }
